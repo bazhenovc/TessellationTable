@@ -36,9 +36,11 @@ So the length of each triangle edge is defined as `number_of_cuts + 1`
 
 Unfortunately, a lot of these triangles simply doesn't exist - 3 exact numbers does not always satisfy triangle inequality rule.
 
-To solve this, an iterative fitting approach is used:
+To solve this, an iterative fitting approach is used.
 
 ```python
+bm = create_triangle((-1, -1, 0), (1, -1, 0), (0, 1, 0)) # Start with equilateral triangle
+
 longest_edge = max([cuts_a+1, cuts_b+1, cuts_c+1]) / (max_cuts+1)
 
 target_edge_0 = (cuts_a+1)/(max_cuts+1)
