@@ -207,6 +207,12 @@ Solution: manually tessellate if needed. Only needed in a very few cases.
 * Compress barycentrics
 * Run meshoptimizer on the patterns
 
+# What didn't work
+
+Tried Delaunay triangulation for inner vertices, ended up not using it. Doesn't seem to provide any benefits over just the current method but was much slower.
+
+Brian suggested flipping edges if flipped edge is shorter, tried that and it resulted in more topology fails. Maybe it's specific to how Blender implements it?
+
 # Future work
 
 This approach trivially extends to tessellating quadrilaterals. Whether this is practically usable or not is unclear at the moment.
