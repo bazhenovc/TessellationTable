@@ -30,15 +30,13 @@ High level overview:
 
 ## Initial triangle
 
-We want each starting triangle edge to be subdivided into segments that have length of 1 Blender unit.
+Each starting triangle edge has to be subdivided into segments that have length of 1 Blender unit.
 
 So the length of each triangle edge is defined as `number_of_cuts + 1`
 
-Unfortunately, a lot of these triangles simply doesn't exist - we want 3 exact numbers and this does not always satisfy triangle inequality rule.
+Unfortunately, a lot of these triangles simply doesn't exist - 3 exact numbers does not always satisfy triangle inequality rule.
 
-### Fitting
-
-To workaround this, we use iterative fitting approach:
+To solve this, an iterative fitting approach is used:
 
 ```python
 longest_edge = max([cuts_a+1, cuts_b+1, cuts_c+1]) / (max_cuts+1)
@@ -165,7 +163,7 @@ Some of them are also flagged by edge length or triangle areas.
 
 #### Too short edges
 
-We want to avoid short edges when possible. Not always possible.
+Want to avoid short edges when possible. Not always possible.
 
 "Short edge" is defined as "non boundary edge that is shorter than 30% of the shortest boundary edge"
 
@@ -191,7 +189,7 @@ Doesn't need any adjustments in most cases.
 
 #### Too small or too big triangles
 
-Ideally we want triangles to be as uniform as possible. Not always possible.
+Ideally triangles should be as uniform as possible. Not always possible.
 
 |  Big triangles |  Manually tessellate  |
 |-----------------------------------------------|--------------------------------------------------|
